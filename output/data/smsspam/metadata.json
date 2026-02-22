@@ -1,0 +1,8 @@
+{
+  "dataset": "smsspam",
+  "n_train": 3861,
+  "n_test_normal": 966,
+  "n_test_anomaly": 747,
+  "anomaly_ratio": 0.1340150699677072,
+  "timestamp": "2026-02-09T14:39:49.231830"
+}

@@ -1,0 +1,56 @@
+{
+  "dataset": "smsspam",
+  "timestamp": "2026-02-09T14:39:49.231830",
+  "n_train": 3861,
+  "n_test_normal": 966,
+  "n_test_anomaly": 747,
+  "anomaly_ratio": 0.1340150699677072,
+  "cosine_distance": 0.1365652084350586,
+  "cosine_distance_pairwise": 0.3352774977684021,
+  "euclidean_distance": 0.14139636911859857,
+  "normal_variance": 4.570333957672119,
+  "anomaly_variance": 3.538585901260376,
+  "inter_class_distance": 3.9184911251068115,
+  "separation_ratio": 0.8573752293372187,
+  "precision": 0.5688405797101449,
+  "recall": 0.8406961178045516,
+  "f1": 0.6785521339816316,
+  "auc": 0.7367981241737134,
+  "confusion_matrix": [
+    [
+      490,
+      476
+    ],
+    [
+      119,
+      628
+    ]
+  ],
+  "threshold": 0.43,
+  "normal_error_mean": 0.4610061049461365,
+  "normal_error_std": 0.20887726545333862,
+  "anomaly_error_mean": 0.630837082862854,
+  "anomaly_error_std": 0.23651868104934692,
+  "config": {
+    "MODEL_NAME": "distilbert-base-uncased",
+    "DEVICE": "cuda",
+    "MAX_LENGTH": 256,
+    "BATCH_SIZE": 32,
+    "SEED": 42,
+    "INPUT_DIM": 768,
+    "HIDDEN_DIM": 256,
+    "LATENT_DIM": 64,
+    "DROPOUT": 0.2,
+    "VAE_EPOCHS": 200,
+    "LEARNING_RATE": 0.001,
+    "BETA_START": 0.0,
+    "BETA_END": 0.3,
+    "BETA_ANNEAL_EPOCHS": 40,
+    "ANOMALY_PERCENTILE": 95,
+    "OUTPUT_DIR": "./output",
+    "DATA_DIR": "./output/data",
+    "IMAGES_DIR": "./output/images",
+    "MODELS_DIR": "./output/models",
+    "RESULTS_DIR": "./output/results"
+  }
+}

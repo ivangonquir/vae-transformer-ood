@@ -1,0 +1,56 @@
+{
+  "dataset": "agnews",
+  "timestamp": "2026-02-09T15:02:56.449598",
+  "n_train": 4000,
+  "n_test_normal": 1000,
+  "n_test_anomaly": 2000,
+  "anomaly_ratio": 0.2857142857142857,
+  "cosine_distance": 0.029402613639831543,
+  "cosine_distance_pairwise": 0.23286712169647217,
+  "euclidean_distance": 0.06338248393844352,
+  "normal_variance": 3.6052043437957764,
+  "anomaly_variance": 3.7949438095092773,
+  "inter_class_distance": 1.7565069198608398,
+  "separation_ratio": 0.4872142470602605,
+  "precision": 0.813721035892776,
+  "recall": 0.8955,
+  "f1": 0.852654129969055,
+  "auc": 0.82396175,
+  "confusion_matrix": [
+    [
+      590,
+      410
+    ],
+    [
+      209,
+      1791
+    ]
+  ],
+  "threshold": 0.43,
+  "normal_error_mean": 0.43493780493736267,
+  "normal_error_std": 0.1742735505104065,
+  "anomaly_error_mean": 0.6661275625228882,
+  "anomaly_error_std": 0.22183652222156525,
+  "config": {
+    "MODEL_NAME": "distilbert-base-uncased",
+    "DEVICE": "cuda",
+    "MAX_LENGTH": 256,
+    "BATCH_SIZE": 32,
+    "SEED": 42,
+    "INPUT_DIM": 768,
+    "HIDDEN_DIM": 256,
+    "LATENT_DIM": 64,
+    "DROPOUT": 0.2,
+    "VAE_EPOCHS": 200,
+    "LEARNING_RATE": 0.001,
+    "BETA_START": 0.0,
+    "BETA_END": 0.3,
+    "BETA_ANNEAL_EPOCHS": 40,
+    "ANOMALY_PERCENTILE": 95,
+    "OUTPUT_DIR": "./output",
+    "DATA_DIR": "./output/data",
+    "IMAGES_DIR": "./output/images",
+    "MODELS_DIR": "./output/models",
+    "RESULTS_DIR": "./output/results"
+  }
+}
