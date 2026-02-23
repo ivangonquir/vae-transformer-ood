@@ -606,6 +606,47 @@ def plot_results(normal_errors, anomaly_errors, threshold, dataset_name, config)
     plt.savefig(save_path, dpi=150, bbox_inches='tight')
     print(f"Plot saved to {save_path}")
     plt.close()
+    
+def plot_training_history(history, dataset_name, config):
+    """Plot VAE training losses (Total, Recon, and KLD with Beta schedule)"""
+    
+    epochs = range(len(history['total_loss']))
+    fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+    
+    # 1. Total Loss
+    axes[0].plot(epochs, history['total_loss'], color='blue', linewidth=2)
+    axes[0].set_title(f'{dataset_name}: Total Loss', fontweight='bold')
+    axes[0].set_xlabel('Epoch')
+    axes[0].set_ylabel('Loss')
+    axes[0].grid(True, linestyle='--', alpha=0.5)
+    
+    # 2. Reconstruction Loss
+    axes[1].plot(epochs, history['recon_loss'], color='green', linewidth=2)
+    axes[1].set_title(f'{dataset_name}: Reconstruction Loss (MSE)', fontweight='bold')
+    axes[1].set_xlabel('Epoch')
+    axes[1].grid(True, linestyle='--', alpha=0.5)
+    
+    # 3. KL Divergence & Beta Schedule
+    ax3 = axes[2]
+    ax3.plot(epochs, history['kld'], color='red', linewidth=2, label='KL Divergence')
+    ax3.set_xlabel('Epoch')
+    ax3.set_ylabel('KL Divergence', color='red')
+    ax3.tick_params(axis='y', labelcolor='red')
+    
+    # Create a secondary y-axis for the Beta schedule
+    ax3_beta = ax3.twinx()
+    ax3_beta.plot(epochs, history['beta'], color='purple', linestyle=':', linewidth=2, label='Beta Penalty')
+    ax3_beta.set_ylabel('Beta Value', color='purple')
+    ax3_beta.tick_params(axis='y', labelcolor='purple')
+    
+    axes[2].set_title(f'{dataset_name}: KL Divergence & Beta Annealing', fontweight='bold')
+    axes[2].grid(True, linestyle='--', alpha=0.5)
+    
+    plt.tight_layout()
+    save_path = os.path.join(config.IMAGES_DIR, f'{dataset_name}_training_history.png')
+    plt.savefig(save_path, dpi=150, bbox_inches='tight')
+    print(f"  Training history plot saved to {save_path}")
+    plt.close()
 
 
 def plot_latent_space(model, scaler, test_normal, test_anomaly, dataset_name, config, n_samples=1000):
@@ -818,6 +859,8 @@ def run_experiment(dataset_name, config, force_reprocess=False):
     # Train VAE
     model = VAE(config.INPUT_DIM, config.HIDDEN_DIM, config.LATENT_DIM, config.DROPOUT).to(config.DEVICE)
     history, train_scaler = train_vae(model, train_normal, config)
+    
+    plot_training_history(history, dataset_name, config)
     
     # Detect anomalies
     detector = AnomalyDetector(model, train_scaler, config.DEVICE)

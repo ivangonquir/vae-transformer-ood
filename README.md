@@ -21,12 +21,20 @@ Instead of relying on standard end-to-end classification or post-hoc Explanable 
 
 ## 📊 Visualizations
 
-*(Note: Add your generated t-SNE plot and loss curves here)*
 
 **Latent Space Separation (Normal vs. Anomaly)**
 <p align="center">
   <img src="output/images/sms_spam_latent_space.png" width="800" alt="t-SNE Latent Space">
 </p>
+
+<p align="center">
+  <img src="output/images/sms_spam_training_history.png" width="800" alt="t-SNE Latent Space">
+</p>
+
+<p align="center">
+  <img src="output/images/sms_spam_results.png" width="800" alt="t-SNE Latent Space">
+</p>
+
 
 ## 🛠️ Installation
 

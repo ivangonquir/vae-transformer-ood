@@ -6,31 +6,31 @@
   "n_test_anomaly": 2000,
   "anomaly_ratio": 0.2857142857142857,
   "cosine_distance": 0.0020297765731811523,
-  "cosine_distance_pairwise": 0.08946532011032104,
+  "cosine_distance_pairwise": 0.09110593795776367,
   "euclidean_distance": 0.01695305901574711,
   "normal_variance": 2.3216872215270996,
   "anomaly_variance": 2.1905407905578613,
   "inter_class_distance": 0.4698169529438019,
   "separation_ratio": 0.20236014075779674,
-  "precision": 0.6280295047418335,
-  "recall": 0.298,
-  "f1": 0.40420481519159035,
-  "auc": 0.47173224999999996,
+  "precision": 0.6290672451193059,
+  "recall": 0.29,
+  "f1": 0.39698836413415467,
+  "auc": 0.47441225,
   "confusion_matrix": [
     [
-      647,
-      353
+      658,
+      342
     ],
     [
-      1404,
-      596
+      1420,
+      580
     ]
   ],
   "threshold": 0.43,
-  "normal_error_mean": 0.43509799242019653,
-  "normal_error_std": 0.248557448387146,
-  "anomaly_error_mean": 0.41497284173965454,
-  "anomaly_error_std": 0.19141153991222382,
+  "normal_error_mean": 0.43295904994010925,
+  "normal_error_std": 0.2483806014060974,
+  "anomaly_error_mean": 0.41216400265693665,
+  "anomaly_error_std": 0.18560336530208588,
   "config": {
     "MODEL_NAME": "distilbert-base-uncased",
     "DEVICE": "cuda",
