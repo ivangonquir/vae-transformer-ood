@@ -39,7 +39,7 @@ Instead of relying on standard end-to-end classification or post-hoc Explanable 
 
 This pipeline definitely has some clear limitations right now. If you look at the t-SNE visualizations, the VAE is clearly doing a good job of pushing the normal and anomalous data into different areas of the latent space. However, when it comes to making actual predictions, the current method (just using a simple MSE threshold) triggers a lot of False Positives. 
 
-Why is this happening? Standard VAE latent spaces are heavily entangled. A perfectly normal text message might get a high reconstruction error just because it uses strange grammar or rare words, not because it's actually an anomaly (like "spam"). The model knows the embedding looks unusual, but it doesn't know why.
+This might be because a perfectly normal text message can get a high reconstruction error just because it uses strange grammar or rare words, not because it's actually an anomaly (like "spam"). Hence, the model knows the embedding looks unusual, but it doesn't know why.
 
 This is exactly the problem I want to tackle next. I want to move away from just looking at a single MSE number and instead try to untangle this latent space. By exploring new techniques, my goal is to map these errors to human-understandable concepts. That way, the model won't just say "this is an anomaly"—it will actually be able to explain what specific semantic concept the Transformer got confused by.
 
